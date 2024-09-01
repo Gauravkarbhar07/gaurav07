@@ -1,0 +1,169 @@
+
+<html>
+<head>
+    <title>Animation Login Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-position: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #282c34;
+        }
+
+        .container {
+            width: 400px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-image: url("login.png");
+            background-size: cover;
+        }
+
+        h2 {
+            color: white;
+            text-transform: uppercase;
+            padding: 20px;
+            font-size: 2em;
+        }
+
+        .form-group {
+            position: relative;
+            width: 330px;
+            margin: 30px 0;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            font-size: 1.2em;
+            color: aliceblue;
+            padding: 0 30px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label {
+            top: -20px;
+            font-size: 0.8em;
+            color: #00bcd4;
+        }
+
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+        }
+
+        p a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+            font-style: italic;
+        }
+
+        #btn {
+            width: 100%;
+            height: 50px;
+            border-radius: 40px;
+            font-size: 1.5em;
+            color: white;
+            background-color: #00bcd4;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #btn:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Page</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <input type="text" id="username" required placeholder="Username">
+                <label for="username">Username</label>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" required placeholder="Password">
+                <label for="password">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <p>
+                <input type="checkbox" id="remember-me"> Remember me
+                <a href="#">Forgot password</a>
+            </p>
+            <input id="btn" type="button" value="Login">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginButton = document.getElementById('btn');
+            loginButton.addEventListener('click', () => {
+                // Get username and password values
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Define valid credentials
+                const validUsername = 'Sbmh';
+                const validPassword = '12345';
+
+                // Validate credentials
+                if (username === validUsername && password === validPassword) {
+                    alert('Login successful!');
+                    // Redirect to home page (replace 'home.html' with the actual URL of your home page)
+                    window.location.href = 'home.html';
+                } else {
+                    alert('Invalid username or password. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
